@@ -15,7 +15,7 @@ function removeExtension(fileName: string): string {
  */
 function loadRouter(app: Express, socketAdapter: SocketAdapter, file: string): void {  
     const name = removeExtension(file);
-    if (name !== "index") {      
+    if (name !== "index" && name !== "") {
       import(`./${file}/${file}.route`)
         .then((routerModule) => {
           console.log("cargado", name);
